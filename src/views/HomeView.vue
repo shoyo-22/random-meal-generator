@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import BaseBtn from "@/components/BaseBtn.vue";
 
 let meal = ref({});
 let loading = ref(true);
@@ -21,7 +22,9 @@ onMounted(() => {
 
 <template>
   <main>
-    <button type="button" @click="generateRandMeal">Generate</button>
+    <section class="action">
+      <BaseBtn label="Generate" @click="generateRandMeal" />
+    </section>
     <div v-if="loading">Loading...</div>
     <div v-else>
       <div>ID: {{ meal.idMeal }}</div>
@@ -60,5 +63,10 @@ main {
   }
 
   transition: all 0.3s ease-in-out;
+
+  .action {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>
