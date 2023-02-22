@@ -1,0 +1,24 @@
+@use "./variables";
+
+@mixin phone {
+  @media (max-width: map-get(variables.$breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: map-get(variables.$breakpoints, "sm")) and (max-width: map-get(variables.$breakpoints, "lg")) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: map-get(variables.$breakpoints, "lg")) {
+    @content;
+  }
+}
+
+@mixin container($width) {
+  max-width: map-get(variables.$container-max-width, $width);
+  margin: 0 auto;
+}

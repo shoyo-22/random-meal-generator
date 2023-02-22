@@ -32,7 +32,7 @@ onMounted(() => {
         <h4>Instrcutions</h4>
         <p>{{ meal.strInstructions }}</p>
       </div>
-      <div>
+      <div class="image">
         <img :src="meal.strMealThumb" alt="" />
       </div>
       <div>Tags: {{ meal.strTags }}</div>
@@ -40,4 +40,25 @@ onMounted(() => {
   </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+main {
+  @include container("lg");
+  @include phone {
+    padding: map-get($spacing, "5");
+  }
+
+  @include tablet {
+    padding: map-get($spacing, "6");
+  }
+
+  @include desktop {
+    padding: map-get($spacing, "8");
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  transition: all 0.3s ease-in-out;
+}
+</style>
