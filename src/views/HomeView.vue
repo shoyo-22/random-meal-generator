@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import BaseBtn from "@/components/BaseBtn.vue";
+import MealInfo from "@/components/MealInfo.vue";
 
 let meal = ref({});
 let loading = ref(true);
@@ -26,20 +27,7 @@ onMounted(() => {
       <BaseBtn label="Generate" @click="generateRandMeal" />
     </section>
     <div v-if="loading">Loading...</div>
-    <div v-else>
-      <div>ID: {{ meal.idMeal }}</div>
-      <div>Name: {{ meal.strMeal }}</div>
-      <div>Category: {{ meal.strCategory }}</div>
-      <div>Country (origin): {{ meal.strArea }}</div>
-      <div>
-        <h4>Instrcutions</h4>
-        <p>{{ meal.strInstructions }}</p>
-      </div>
-      <div class="image">
-        <img :src="meal.strMealThumb" alt="" />
-      </div>
-      <div>Tags: {{ meal.strTags }}</div>
-    </div>
+    <MealInfo :data="meal" v-else />
   </main>
 </template>
 
@@ -57,12 +45,11 @@ main {
   @include desktop {
     padding: map-get($spacing, "8");
   }
-
-  img {
-    max-width: 100%;
-  }
-
   transition: all 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacing, "4");
 
   .action {
     display: flex;

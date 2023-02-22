@@ -28,6 +28,7 @@ button {
   border-radius: $btn-border-radius;
   background-color: map-get($primary, "700");
   color: $white;
+  font-family: inherit;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
