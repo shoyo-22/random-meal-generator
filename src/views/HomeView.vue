@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import BaseBtn from "@/components/BaseBtn.vue";
 import MealInfo from "@/components/MealInfo.vue";
+import Loading from "@/components/Loading.vue";
 
 let meal = ref({});
 let loading = ref(true);
@@ -26,7 +27,7 @@ onMounted(() => {
     <section class="action">
       <BaseBtn label="Generate" @click="generateRandMeal" />
     </section>
-    <div v-if="loading">Loading...</div>
+    <Loading v-if="loading" />
     <MealInfo :data="meal" v-else />
   </main>
 </template>
