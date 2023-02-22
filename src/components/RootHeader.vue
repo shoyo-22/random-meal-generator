@@ -1,13 +1,14 @@
 <script setup>
 import BaseBtn from "@/components/BaseBtn.vue";
+import NavItem from "./NavItem.vue";
 </script>
 
 <template>
   <header>
     <section>
       <nav>
-        <li>All Meals</li>
-        <li>Random</li>
+        <NavItem label="All Meals" />
+        <NavItem label="Random" />
       </nav>
       <BaseBtn label="Dark" />
     </section>
