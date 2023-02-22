@@ -1,14 +1,30 @@
 <script setup>
+import { ref } from "vue";
 import BaseBtn from "@/components/BaseBtn.vue";
 import NavItem from "./NavItem.vue";
+
+const navItems = ref([
+  {
+    label: "All Meals",
+    href: "/all",
+  },
+  {
+    label: "Random",
+    href: "/",
+  },
+]);
 </script>
 
 <template>
   <header>
     <section>
       <nav>
-        <NavItem label="All Meals" />
-        <NavItem label="Random" />
+        <NavItem
+          v-for="item in navItems"
+          :key="item.label"
+          :label="item.label"
+          :href="item.href"
+        />
       </nav>
       <BaseBtn label="Dark" />
     </section>

@@ -1,14 +1,31 @@
 <script setup>
-defineProps({
+import { ref } from "vue";
+import router from "@/router";
+
+const props = defineProps({
   label: {
     type: String,
     default: "",
   },
+  href: {
+    type: String,
+    default: "",
+  },
 });
+
+let isActive = ref(false);
+
+function navigate(href) {
+  router.push(href);
+}
 </script>
 
 <template>
-  <li class="nav-item">
+  <li
+    class="nav-item"
+    :class="isActive ? 'active' : ''"
+    @click="navigate(props.href)"
+  >
     {{ label }}
   </li>
 </template>
